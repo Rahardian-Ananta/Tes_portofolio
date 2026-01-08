@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Your Name</title>
+  <meta name="description" content="Portfolio minimalis dan profesional menggunakan HTML CSS JS vanilla">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #020617;
+      --primary: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin-inline: auto;
+    }
+
+    /* ===== NAV ===== */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+    }
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 5rem 0 4rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      max-width: 550px;
+      color: var(--muted);
+    }
+
+    /* ===== SECTION ===== */
+    section {
+      padding: 4rem 0;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    /* ===== PROJECTS ===== */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--surface);
+      padding: 1.5rem;
+      border-radius: 12px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .card h3 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact p {
+      color: var(--muted);
+    }
+
+    .contact a {
+      color: var(--primary);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        right: 5%;
+        top: 70px;
+        background: var(--surface);
+        flex-direction: column;
+        padding: 1rem;
+        border-radius: 10px;
+        display: none;
+        width: 180px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">Rachel Frena</div>
+    <button class="menu-btn" aria-label="Toggle menu">☰</button>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>Hi, I'm <span>Rachel Frena</span></h1>
+    <p>
+      Developer focused on clean architecture, performance, and lightweight systems using vanilla technologies.
+    </p>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="about">
+      <p>
+        I build minimalist and efficient web applications without unnecessary dependencies.
+        Performance, maintainability, and clarity are my priorities.
+      </p>
+      <img src="https://via.placeholder.com/500x300?text=Profile+Image" alt="Profile">
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <img src="https://via.placeholder.com/400x250?text=Project+1" alt="Project 1">
+        <h3>Project One</h3>
+        <p>Lightweight web system built with vanilla JavaScript.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/400x250?text=Project+2" alt="Project 2">
+        <h3>Project Two</h3>
+        <p>Minimalist UI with focus on performance and clarity.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/400x250?text=Project+3" alt="Project 3">
+        <h3>Project Three</h3>
+        <p>Engine-based project supporting multiple data sources.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
+    <p>GitHub: <a href="#">github.com/Rachel Frena</a></p>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Rachel Frena. All rights reserved.
+</footer>
+
+<script>
+  const menuBtn = document.querySelector('.menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
