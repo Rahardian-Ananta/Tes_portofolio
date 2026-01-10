@@ -107,6 +107,42 @@
         "area": "<section[^>]*data-image-data=\"[^\"]*\"[^>]*>([\\s\\S]*?)</section>",
         "image": "<img[^>]+src=\"([^\"]+)\""
       }
+    },
+    {
+      "id": "bacakomik",
+      "name": "Bacakomik",
+      "http": {
+        "user_agent": "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/537.36",
+        "referer": "https://bacakomik.my/"
+      },
+      "list": {
+        "url": "https://bacakomik.my/komik-terbaru/",
+        "item": "<div class=\"animepost\">[\\s\\S]*?</div>\\s*</div>\\s*</div>",
+        "title": "<h4>(.*?)</h4>",
+        "link": "<a href=\"([^\"]+)\" itemprop=\"url\"",
+        "thumb": "<img[^>]+(?:data-lazy-src|src)=\"([^\"]+\\.(?:jpg|jpeg|png|webp)[^\" ]*)\""
+      },
+      "detail": {
+        "judul": "<h1[^>]*class=\"entry-title\"[^>]*>(.*?)</h1>",
+        "rating": "itemprop=\"ratingValue\">(.*?)</span>",
+        "author": "<b>Author:</b>\\s*<a[^>]*>(.*?)</a>",
+        "status": "<b>Status:</b>\\s*(.*?)\\s*</span>",
+        "type": "<b>Jenis Komik:</b>\\s*<a[^>]*>\\s*(.*?)\\s*</a>",
+        "tahun": "<b>Rilis:</b>\\s*<a[^>]*>\\s*(.*?)\\s*</a>",
+        "thumbnail": "<div class=\"thumb\"[^>]*>\\s*<img[^>]+src=\"([^\"]+)\"",
+        "genre_block": "<div class=\"gnr\">([\\s\\S]*?)</div>",
+        "genre_item": "rel=\"tag\">([^<]+)</a>",
+        "sinopsis": "<div[^>]+itemprop=\"description\"[^>]*>([\\s\\S]*?)</div>",
+        "chapter_block": "id=\"chapter_list\"[^>]*>([\\s\\S]*?)</div>",
+        "chapter_item": "<li>([\\s\\S]*?)</li>",
+        "chapter_name": "class=\"lchx\"[^>]*>([\\s\\S]*?)</span>",
+        "chapter_link": "href=\"([^\"]+)\"",
+        "chapter_date": "class=\"dt\"[^>]*>([\\s\\S]*?)</span>"
+      },
+      "chapter": {
+        "area": "<div id=\"chimg-auh\">([\\s\\S]*?)</div>\\s*</div>\\s*</div>",
+        "image": "(?:src|data-lazy-src)=\"(https?://[^\"]+\\.(?:jpg|jpeg|png|webp|svg)[^\"]*)\""
+      }
     }
   ]
 }
