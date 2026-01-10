@@ -71,6 +71,42 @@
         "image": "(?:src|data-src)=\"(https://blogger\\.googleusercontent\\.com[^\"]+)\"",
         "index": "data-index=\"(\\d+)\""
       }
+    },
+    {
+      "id": "natsu",
+      "name": "Natsu",
+      "http": {
+        "user_agent": "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/537.36",
+        "referer": "https://natsu.tv/"
+      },
+      "list": {
+        "url": "https://natsu.tv/latest-update/",
+        "item": "<div[^>]*class=\"group-data-\\[direction=horizontal\\]:hidden\"[^>]*>(.*?)</div>\\s*(?=<div\\s*class=\"hidden\\s*group-data|</div>\\s*</div>\\s*$)",
+        "title": "<h1[^>]*class=\"[^\"]*line-clamp-2[^\"]*\"[^>]*>\\s*(.*?)\\s*<",
+        "link": "<a[^>]*class=\"[^\"]*w-full h-full[^\"]*\"[^>]*href=\"([^\"]+)\"",
+        "thumb": "<img[^>]+src=\"([^\"]+)\"[^>]*class=\"[^\"]*h-full[^\"]*\"(?![^>]*\\.svg)"
+      },
+      "detail": {
+        "judul": "<h1[^>]*itemprop=\"name\"[^>]*>\\s*(.*?)\\s*</h1>",
+        "rating": "<div itemprop=\"ratingValue\" content=\"(.*?)\"",
+        "manga_id": "manga_id=(\\d+)",
+        "ajax_url": "https://natsu.tv/wp-admin/admin-ajax.php?manga_id={id}&page=1&action=chapter_list",
+        "type": "palette[\\s\\S]*?<p[^>]*class=\"[^\"]*text-sm[^\"]*\"[^>]*>\\s*(.*?)\\s*</p>",
+        "tahun": "Released[\\s\\S]*?<p[^>]*class=\"[^\"]*text-sm[^\"]*\"[^>]*>\\s*(.*?)\\s*</p>",
+        "thumbnail": "<div[^>]*itemprop=\"image\"[^>]*>[\\s\\S]*?<img[^>]*src=\"(.*?)\"",
+        "sinopsis": "<div[^>]*itemprop=\"description\"[^>]*>([\\s\\S]*?)</div>",
+        "genre_block": "itemprop=\"genre\"[\\s\\S]*?</div>\\s*</div>",
+        "genre_item": "itemprop=\"genre\"[^>]*>([\\s\\S]*?)</a>",
+        "chapter_block": "([\\s\\S]+)",
+        "chapter_item": "(<div[^>]*data-chapter-number=\"[^\"]*\"[^>]*>[\\s\\S]*?</a>\\s*</div>)",
+        "chapter_name": "<span>\\s*(Chapter\\s*\\d+)\\s*</span>",
+        "chapter_link": "href=\"([^\"]+)\"",
+        "chapter_date": "<time[^>]*>\\s*([^<]+?)\\s*</time>"
+      },
+      "chapter": {
+        "area": "<section[^>]*data-image-data=\"[^\"]*\"[^>]*>([\\s\\S]*?)</section>",
+        "image": "<img[^>]+src=\"([^\"]+)\""
+      }
     }
   ]
 }
