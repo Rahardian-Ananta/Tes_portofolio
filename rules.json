@@ -29,7 +29,7 @@
         "chapter_item": "<li[^>]*class=\"komik_info-chapters-item\"[^>]*>(.*?)</li>",
         "chapter_name": "<a[^>]*class=\"chapter-link-item\"[^>]*>(.*?)</a>",
         "chapter_link": "<a[^>]*href=\"([^\"]+)\"",
-        "chapter_date": "</span>\s*([^<]+)</div>"
+        "chapter_date": "</span>\\s*([^<]+)</div>"
       },
       "chapter": {
         "area": "<div class=\"main-reading-area\">[\\s\\S]*?</div>",
