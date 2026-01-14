@@ -80,7 +80,7 @@
         "referer": "https://natsu.tv/"
       },
       "list": {
-        "url": "https://natsu.tv/latest-update/",
+        "url": "https://natsu.tv/latest-update/?the_page={page}",
         "item": "<div[^>]*class=\"group-data-\\[direction=horizontal\\]:hidden\"[^>]*>(.*?)</div>\\s*(?=<div\\s*class=\"hidden\\s*group-data|</div>\\s*</div>\\s*$)",
         "title": "<h1[^>]*class=\"[^\"]*line-clamp-2[^\"]*\"[^>]*>\\s*(.*?)\\s*<",
         "link": "<a[^>]*class=\"[^\"]*w-full h-full[^\"]*\"[^>]*href=\"([^\"]+)\"",
@@ -116,7 +116,7 @@
         "referer": "https://bacakomik.my/"
       },
       "list": {
-        "url": "https://bacakomik.my/komik-terbaru/",
+        "url": "https://bacakomik.my/komik-terbaru/page/{page}/",
         "item": "<div class=\"animepost\">[\\s\\S]*?</div>\\s*</div>\\s*</div>",
         "title": "<h4>(.*?)</h4>",
         "link": "<a href=\"([^\"]+)\" itemprop=\"url\"",
