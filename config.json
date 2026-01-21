@@ -1,0 +1,147 @@
+{
+  "rules": [
+    {
+      "id": "komikcast",
+      "name": "Komikcast",
+      "http": {
+        "user_agent": "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/537.36",
+        "referer": "https://komikcast03.com/"
+      },
+      "list": {
+        "url": "https://komikcast03.com/daftar-komik/page/{page}/?sortby=update",
+        "container": "<div class=\"list-update_item\">[\\s\\S]*?<\\/div>\\s*<\\/div>\\s*<\\/div>",
+        "title": "<h3 class=\"title\"[^>]*>([^<]+)",
+        "link": "<a href=\"([^\"]+)\"",
+        "thumb": "<img[^>]+src=\"([^\"]+)\""
+      },
+      "detail": {
+        "judul": "<h1[^>]*class=\"komik_info-content-body-title\"[^>]*>([^<]+)",
+        "rating": "data-ratingkomik=\"([0-9.]+)\"",
+        "author": "Author:\\s*([^<]+?)\\s*<",
+        "status": "Status:\\s*([^<]+?)\\s*<",
+        "type": "Type:\\s*[^>]*>([^<]+)",
+        "tahun": "Released:\\s*([^<]+?)\\s*<",
+        "thumbnail": "<div class=\"komik_info-body\">[^<]*<img[^>]+src=\"([^\"]+)\"",
+        "sinopsis": "<div class=\"komik_info-description-sinopsis\"[^>]*>([\\s\\S]*?)<\\/div>",
+        "genre_block": "<span class=\"komik_info-content-genre\">([\\s\\S]*?)<\\/span>",
+        "genre_item": "rel=\"tag\"[^>]*>([^<]+)",
+        "chapter_block": "<ul[^>]*id=\"chapter-wrapper\"[^>]*>([\\s\\S]*?)<\\/ul>",
+        "chapter_item": "<li[^>]*class=\"komik_info-chapters-item\"[^>]*>([\\s\\S]*?)<\\/li>",
+        "chapter_name": "<a[^>]*class=\"chapter-link-item\"[^>]*>([\\s\\S]*?)<\\/a>",
+        "chapter_link": "<a[^>]*href=\"([^\"]+)\"",
+        "chapter_date": "\\s([^<]+)"
+      },
+      "chapter": {
+        "area": "<div class=\"main-reading-area\">([\\s\\S]*?)<\\/div>",
+        "image": "<img[^>]+src=\"([^\"]+)\""
+      }
+    },
+    {
+      "id": "noromax",
+      "name": "Noromax",
+      "http": {
+        "user_agent": "Mozilla/5.0",
+        "referer": "https://noromax01.my.id/"
+      },
+      "list": {
+        "url": "https://noromax01.my.id/manga/?page={page}&order=update",
+        "item": "<div class=\"bsx\">.*?<\\/div>",
+        "title": "title=\"([^\"]+)\"",
+        "link": "href=\"([^\"]+)\"",
+        "thumb": "src=\"([^\"]+)\""
+      },
+      "detail": {
+        "judul": "<h1 class=\"entry-title\"[^>]*>([^<]+)",
+        "rating": "itemprop=\"ratingValue\" content=\"([^\"]+)\"",
+        "author": "Author\\s*([^<]+?)\\s*<",
+        "status": "Status ([^<]+)",
+        "type": "Type <a[^>]*>\\s*([^<]+)\\s*<",
+        "tahun": "Released\\s*([^<]+?)\\s*<",
+        "thumbnail": "<div class=\"thumb\"[^>]*src=\"([^\"]+)\"",
+        "genre_block": "<span class=\"mgen\">([\\s\\S]*?)<\\/span>",
+        "genre_item": "rel=\"tag\"[^>]*>([^<]+)",
+        "sinopsis": "itemprop=\"description\">([\\s\\S]*?)<\\/div>",
+        "chapter_block": "<div class=\"eplister\" id=\"chapterlist\">([\\s\\S]*?)<\\/div>",
+        "chapter_item": "<li data-num=.*?>([\\s\\S]*?)<\\/li>",
+        "chapter_name": "<span class=\"chapternum\">([^<]+)",
+        "chapter_link": "href=\"([^\"]+)\"",
+        "chapter_date": "<span class=\"chapterdate\">([^<]+)"
+      },
+      "chapter": {
+        "image": "(?:src|data-src)=\"(https://blogger\\.googleusercontent\\.com[^\"]+)\""
+      }
+    },
+    {
+      "id": "natsu",
+      "name": "Natsu",
+      "http": {
+        "user_agent": "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/537.36",
+        "referer": "https://natsu.tv/"
+      },
+      "list": {
+        "url": "https://natsu.tv/latest-update/?the_page={page}",
+        "item": "<div[^>]*class=\"group-data-\\\\:hidden\"[^>]*>([\\s\\S]*?)(?=<div\\sclass=\"hidden\\sgroup-data|\\s*$)",
+        "title": "<h1[^>]*class=\"[^\"]*line-clamp-2[^\"]*\"[^>]*>\\s*([^<]+)\\s*<",
+        "link": "<a[^>]*class=\"[^\"]*w-full h-full[^\"]*\"[^>]*href=\"([^\"]+)\"",
+        "thumb": "<img[^>]+src=\"([^\"]+)\"[^>]*class=\"[^\"]*h-full[^\"]*\"(?![^>]*\\.svg)"
+      },
+      "detail": {
+        "judul": "<h1[^>]*itemprop=\"name\"[^>]*>\\s([^<]+)\\s*<",
+        "rating": "<div itemprop=\"ratingValue\" content=\"([^\"]+)\"",
+        "manga_id": "manga_id=(\\d+)",
+        "ajax_url": "https://natsu.tv/wp-admin/admin-ajax.php?manga_id={id}&page=1&action=chapter_list",
+        "type": "palette[\\s\\S]*?<p[^>]*class=\"[^\"]*text-sm[^\"]*\"[^>]*>\\s*([^<]+)\\s*<",
+        "tahun": "Released[\\s\\S]*?<p[^>]*class=\"[^\"]*text-sm[^\"]*\"[^>]*>\\s([^<]+)\\s*<",
+        "thumbnail": "<div[^>]*itemprop=\"image\"[^>]*>[\\s\\S]*?<img[^>]*src=\"([^\"]+)\"",
+        "sinopsis": "<div[^>]*itemprop=\"description\"[^>]*>([\\s\\S]*?)<\\/div>",
+        "genre_block": "itemprop=\"genre\"[\\s\\S]*?<\\/div>",
+        "genre_item": "itemprop=\"genre\"[^>]*>([^<]+)",
+        "chapter_block": "([\\s\\S]+)",
+        "chapter_item": "(<div[^>]*data-chapter-number=\"[^\"]*\"[^>]*>[\\s\\S]*?<\\/div>)",
+        "chapter_name": "\\s*(Chapter\\s*\\d+)\\s*",
+        "chapter_link": "href=\"([^\"]+)\"",
+        "chapter_date": "<time[^>]*>\\s([^<]+?)\\s*<"
+      },
+      "chapter": {
+        "area": "<section[^>]*data-image-data=\"[^\"]*\"[^>]*>([\\s\\S]*?)<\\/section>",
+        "image": "<img[^>]+src=\"([^\"]+)\""
+      }
+    },
+    {
+      "id": "bacakomik",
+      "name": "Bacakomik",
+      "http": {
+        "user_agent": "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/537.36",
+        "referer": "https://bacakomik.my/"
+      },
+      "list": {
+        "url": "https://bacakomik.my/komik-terbaru/page/{page}/",
+        "item": "<div class=\"animepost\">[\\s\\S]*?<\\/div>\\s*<\\/div>",
+        "title": "<h3[^>]*>([^<]+)<\\/h3>",
+        "link": "<a href=\"([^\"]+)\" itemprop=\"url\"",
+        "thumb": "<img[^>]+(?:data-lazy-src|src)=\"([^\"]+\\.(?:jpg|jpeg|png|webp)[^\" ])\""
+      },
+      "detail": {
+        "judul": "<h1[^>]*class=\"entry-title\"[^>]*>([^<]+)",
+        "rating": "itemprop=\"ratingValue\">([^<]+)",
+        "author": "Author:\\s*<a[^>]*>([^<]+)",
+        "status": "Status:\\s*([^<]+?)\\s*<",
+        "type": "Jenis Komik:\\s*<a[^>]*>\\s([^<]+)\\s*<",
+        "tahun": "Rilis:\\s*<a[^>]*>\\s([^<]+)\\s*<",
+        "thumbnail": "<div class=\"thumb\"[^>]*>\\s*<img[^>]+src=\"([^\"]+)\"",
+        "genre_block": "<div class=\"gnr\">([\\s\\S]*?)<\\/div>",
+        "genre_item": "rel=\"tag\">([^<]+)",
+        "sinopsis": "<div[^>]+itemprop=\"description\"[^>]*>([\\s\\S]*?)<\\/div>",
+        "chapter_block": "id=\"chapter_list\"[^>]*>([\\s\\S]*?)<\\/ul>",
+        "chapter_item": "<li[^>]*>([\\s\\S]*?)<\\/li>",
+        "chapter_name": "class=\"lchx\"[^>]*>([\\s\\S]*?)<\\/a>",
+        "chapter_link": "href=\"([^\"]+)\"",
+        "chapter_date": "class=\"dt\"[^>]*>([\\s\\S]*?)<\\/span>"
+      },
+      "chapter": {
+        "area": "<div id=\"chimg-auh\">([\\s\\S]*?)<\\/div>",
+        "image": "(?:src|data-lazy-src)=\"(https?://[^\"]+\\.(?:jpg|jpeg|png|webp)[^\"]*)\""
+      }
+    }
+  ]
+}
