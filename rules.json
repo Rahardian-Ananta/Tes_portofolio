@@ -8,7 +8,7 @@
         "referer": "https://komikcast03.com/"
       },
       "list": {
-        "url": "https://komikcast03.com/daftar-komik/page/{page}/?sortby=update",
+        "url": "https://komikcast05.com/daftar-komik/page/{page}/?sortby=update",
         "container": "<div class=\"list-update_item\">[\\s\\S]*?</div>\\s*</div>\\s*</div>\\s*</a>\\s*</div>",
         "title": "<h3 class=\"title\"[^>]*>(.*?)</h3>",
         "link": "<a href=\"([^\"]+)\"",
