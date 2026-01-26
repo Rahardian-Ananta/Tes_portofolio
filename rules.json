@@ -143,42 +143,6 @@
         "area": "<div id=\"chimg-auh\">([\\s\\S]*?)</div>\\s*</div>\\s*</div>",
         "image": "(?:src|data-lazy-src)=\"(https?://[^\"]+\\.(?:jpg|jpeg|png|webp|svg)[^\"]*)\""
       }
-    },
-    {
-      "id": "kiryuu",
-      "name": "Kiryuu",
-      "http": {
-        "user_agent": "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/537.36",
-        "referer": "https://kiryuu03.com/"
-      },
-      "list": {
-        "url": "https://kiryuu03.com/latest/",
-        "item": "<div class=\"group-data-\\[direction=horizontal\\]:hidden\">[\\s\\S]*?</h1>\\s*</a>\\s*</div>",
-        "title": "<h1[^>]*>\\s*(.*?)\\s*</h1>",
-        "link": "<a color=\"primary\"[^>]*href=\"([^\"]+)\"",
-        "thumb": "<img[^>]+(?:src|data-src)=\"([^\"]+)\"[^>]*class=\"[^\"]*wp-post-image[^\"]*\"|<img[^>]+class=\"[^\"]*wp-post-image[^\"]*\"[^>]+(?:src|data-src)=\"([^\"]+)\""
-      },
-      "detail": {
-        "judul": "<h1[^>]*class=\"[^\"]*(?:font-bold|font-semibold)[^\"]*\"[^>]*>\\s*(.*?)\\s*</h1>",
-        "rating": "<div[^>]*itemprop=\"ratingValue\"[^>]*content=\"([^\"]+)\"",
-        "type": "<span class=\"font-semibold\">Type</span>[\\s\\S]*?<p class=\"font-normal text-sm inline ml-1\">\\s*(.*?)\\s*</p>",
-        "tahun": "<span class=\"font-semibold\">Released</span>[\\s\\S]*?<p class=\"font-normal text-sm inline ml-1\">\\s*(.*?)\\s*</p>",
-        "thumbnail": "<div[^>]*itemprop=\"image\"[^>]*>[\\s\\S]*?<img[^>]+src=\"([^\"]+)\"",
-        "genre_block": "<div class=\"flex flex-wrap gap-1 md:gap-2 mt-2 mb-2\">([\\s\\S]*?)</div>",
-        "genre_item": "<span[^>]*class=\"[^\"]*font-normal[^\"]*\"[^>]*>\\s*([^<]+)\\s*</span>",
-        "sinopsis": "<div[^>]*data-show=\"true\"[^>]*itemprop=\"description\"[^>]*>([\\s\\S]*?)</div>",
-        "manga_id": "manga_id=(\\d+)",
-        "ajax_url": "https://kiryuu03.com/wp-admin/admin-ajax.php?manga_id={id}&page=1&action=chapter_list",
-        "chapter_block": "<div id=\"chapter-list\"[^>]*>([\\s\\S]*?)</div>\\s*<script",
-        "chapter_item": "(<div[^>]*data-chapter-number=\"[^\"]*\"[\\s\\S]*?)(?=<div[^>]*data-chapter-number=\"[^\"]*\"|$)",
-        "chapter_name": "font-medium[^>]*>\\s*<span>\\s*(Chapter[^<]+)\\s*</span>",
-        "chapter_link": "<a[^>]*href=\"([^\"]+)\"",
-        "chapter_date": "<time[^>]*>([^<]+)</time>"
-      },
-      "chapter": {
-        "area": "<section[^>]*data-image-data=[^>]*>([\\s\\S]*?)</section>",
-        "image": "<img[^>]+src=['\"]([^'\"]+)['\"]"
-      }
     }
   ]
 }
