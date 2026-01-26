@@ -27,7 +27,7 @@
         "genre_item": "rel=\"tag\"[^>]*>(.*?)</a>",
         "chapter_block": "<ul[^>]*id=\"chapter-wrapper\"[^>]*>(.*?)</ul>",
         "chapter_item": "<li[^>]*class=\"komik_info-chapters-item\"[^>]*>(.*?)</li>",
-        "chapter_name": "<a[^>]*class=\"chapter-link-item\"[^>]*>[\\s\\S]*?(Chapter[^<]+)",
+        "chapter_name": "Chapter\\s*([0-9]+(?:\\.[0-9]+)?)",
         "chapter_link": "<a[^>]*href=\"([^\"]+)\"",
         "chapter_date": "</span>\\s*([^<]+)</div>"
       },
