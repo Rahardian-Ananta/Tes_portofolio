@@ -76,7 +76,7 @@
       "id": "natsu",
       "name": "Natsu",
       "http": {
-        "user_agent": "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, judge Gecko) Chrome/91.0.4472.120 Mobile Safari/537.36",
+        "user_agent": "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/537.36",
         "referer": "https://natsu.tv/"
       },
       "list": {
@@ -156,7 +156,7 @@
         "item": "<div class=\"group-data-\\[direction=horizontal\\]:hidden\">[\\s\\S]*?</h1>\\s*</a>\\s*</div>",
         "title": "<h1[^>]*>\\s*(.*?)\\s*</h1>",
         "link": "<a color=\"primary\"[^>]*href=\"([^\"]+)\"",
-        "thumb": "<img[^>]+src=\"([^\"]+)\"[^>]*class=\"[^\" ]*wp-post-image[^\" ]*\""
+        "thumb": "<img[^>]+(?:src|data-src)=\"([^\"]+)\"[^>]*class=\"[^\"]*wp-post-image[^\"]*\"|<img[^>]+class=\"[^\"]*wp-post-image[^\"]*\"[^>]+(?:src|data-src)=\"([^\"]+)\""
       },
       "detail": {
         "judul": "<h1[^>]*class=\"[^\"]*(?:font-bold|font-semibold)[^\"]*\"[^>]*>\\s*(.*?)\\s*</h1>",
@@ -165,7 +165,7 @@
         "tahun": "<span class=\"font-semibold\">Released</span>[\\s\\S]*?<p class=\"font-normal text-sm inline ml-1\">\\s*(.*?)\\s*</p>",
         "thumbnail": "<div[^>]*itemprop=\"image\"[^>]*>[\\s\\S]*?<img[^>]+src=\"([^\"]+)\"",
         "genre_block": "<div class=\"flex flex-wrap gap-1 md:gap-2 mt-2 mb-2\">([\\s\\S]*?)</div>",
-        "genre_item": "<span class=\"flex-1 text-inherit font-normal px-2\"[^>]*>(.*?)</span>",
+        "genre_item": "<span[^>]*class=\"[^\"]*font-normal[^\"]*\"[^>]*>\\s*([^<]+)\\s*</span>",
         "sinopsis": "<div[^>]*data-show=\"true\"[^>]*itemprop=\"description\"[^>]*>([\\s\\S]*?)</div>",
         "manga_id": "manga_id=(\\d+)",
         "ajax_url": "https://kiryuu03.com/wp-admin/admin-ajax.php?manga_id={id}&page=1&action=chapter_list",
