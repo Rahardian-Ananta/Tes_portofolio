@@ -1,40 +1,41 @@
 {
   "rules": [
-    {
-      "id": "komikcast",
-      "name": "Komikcast",
+      {
+      "id": "mangakita",
+      "name": "Mangakita",
       "http": {
-        "user_agent": "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/537.36",
-        "referer": "https://komikcast03.com/"
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "referer": "https://mangakita.id/"
       },
       "list": {
-        "url": "https://komikcast05.com/daftar-komik/page/{page}/?sortby=update",
-        "container": "<div class=\"list-update_item\">[\\s\\S]*?</div>\\s*</div>\\s*</div>\\s*</a>\\s*</div>",
-        "title": "<h3 class=\"title\"[^>]*>(.*?)</h3>",
-        "link": "<a href=\"([^\"]+)\"",
-        "thumb": "<img[^>]+src=\"([^\"]+)\""
+          "url": "https://mangakita.id/manga/?page={page}&order=update",
+          "container": "<div class=\"bsx\">([\\\\s\\\\S]+?)</div>\\\\s*</div>",
+          "title": "title=\"([^\"]+)\"",
+          "link": "<a href=\"([^\"]+)\"",
+          "thumb": "<img[^>]+src=\"([^\"]+)\""
       },
       "detail": {
-        "judul": "<h1[^>]*class=\"komik_info-content-body-title\"[^>]*>(.*?)</h1>",
-        "rating": "data-ratingkomik=\"([0-9.]+)\"",
-        "author": "<b>Author:</b>\\s*([\\s\\S]*?)\\s*</span>",
-        "status": "<b>Status:</b>\\s*(.*?)\\s*</span>",
-        "type": "<b>Type:</b>\\s*.*?>(.*?)</a>",
-        "tahun": "<b>Released:</b>\\s*([\\s\\S]*?)\\s*</span>",
-        "thumbnail": "<div class=\"komik_info-body\">.*?<img[^>]+src=\"([^\"]+)\"",
-        "sinopsis": "<div class=\"komik_info-description-sinopsis\"[^>]*>(.*?)</div>",
-        "genre_block": "<span class=\"komik_info-content-genre\">([\\s\\S]*?)</span>",
-        "genre_item": "rel=\"tag\"[^>]*>(.*?)</a>",
-        "chapter_order": "desc",
-        "chapter_block": "<ul[^>]*id=\"chapter-wrapper\"[^>]*>(.*?)</ul>",
-        "chapter_item": "<li[^>]*class=\"komik_info-chapters-item\"[^>]*>(.*?)</li>",
-        "chapter_name": "<a[^>]*class=\"chapter-link-item\"[^>]*>[\\s\\S]*?(Chapter[^<]+)",
-        "chapter_link": "<a[^>]*href=\"([^\"]+)\"",
-        "chapter_date": "</span>\\s*([^<]+)</div>"
+          "judul": "<h1 class=\"entry-title\" itemprop=\"name\">([^<]+)</h1>",
+          "rating": "itemprop=\"ratingValue\" content=\"([^\"]+)\"",
+          "author": "Author <i>([^<]+)</i>",
+          "status": "Status <i>([^<]+)</i>",
+          "type": "Type <a[^>]+>([^<]+)</a>",
+          "tahun": "Released <i>([^<]+)</i>",
+          "genre_block": "<span class=\"mgen\">([\\s\\S]+?)</span>",
+          "genre_item": "<a[^>]+>([^<]+)</a>",
+          "thumbnail": "<div class=\"thumb\"[^>]*>[\\s\\S]*?src=\"([^\"]+)\"",
+          "sinopsis": "itemprop=\"description\">([\\s\\S]*?)</div>",
+          "manga_id": "post_id\"\\s*:\\s*\"([^\"]+)\"",
+          "ajax_url": "",
+          "chapter_block": "<div class=\"eplister\"[^>]*>([\\s\\S]+?)</ul>",
+          "chapter_item": "<li[^>]*>([\\s\\S]+?)</li>",
+          "chapter_name": "<span class=\"chapternum\">([^<]+)</span>",
+          "chapter_link": "<a href=\"([^\"]+)\"",
+          "chapter_date": "<span class=\"chapterdate\">([^<]+)</span>"
       },
       "chapter": {
-        "area": "<div class=\"main-reading-area\">[\\s\\S]*?</div>",
-        "image": "<img[^>]+src=\"([^\"]+)\""
+          "area": "<div id=\"readerarea\">([\\\\s\\\\S]+?)(?:</div>|<noscript)",
+          "image": "<img[^>]+src=\"([^\"]+)\""
       }
     },
     {
@@ -62,7 +63,6 @@
         "genre_block": "<span class=\"mgen\">(.*?)</span>",
         "genre_item": "rel=\"tag\"[^>]*>(.*?)</a>",
         "sinopsis": "itemprop=\"description\">(.*?)</div>",
-        "chapter_order": "desc",
         "chapter_block": "<div class=\"eplister\" id=\"chapterlist\">.*?</ul>",
         "chapter_item": "<li data-num=.*?</li>",
         "chapter_name": "<span class=\"chapternum\">(.*?)</span>",
@@ -99,7 +99,6 @@
         "sinopsis": "<div[^>]*itemprop=\"description\"[^>]*>([\\s\\S]*?)</div>",
         "genre_block": "itemprop=\"genre\"[\\s\\S]*?</div>\\s*</div>",
         "genre_item": "itemprop=\"genre\"[^>]*>([\\s\\S]*?)</a>",
-        "chapter_order": "desc",
         "chapter_block": "([\\s\\S]+)",
         "chapter_item": "(<div[^>]*data-chapter-number=\"[^\"]*\"[^>]*>[\\s\\S]*?</a>\\s*</div>)",
         "chapter_name": "<span>\\s*(Chapter\\s*\\d+)\\s*</span>",
@@ -136,7 +135,6 @@
         "genre_block": "<div class=\"gnr\">([\\s\\S]*?)</div>",
         "genre_item": "rel=\"tag\">([^<]+)</a>",
         "sinopsis": "<div[^>]+itemprop=\"description\"[^>]*>([\\s\\S]*?)</div>",
-        "chapter_order": "desc",
         "chapter_block": "id=\"chapter_list\"[^>]*>([\\s\\S]*?)</div>",
         "chapter_item": "<li>([\\s\\S]*?)</li>",
         "chapter_name": "class=\"lchx\"[^>]*>([\\s\\S]*?)</span>",
@@ -156,7 +154,7 @@
         "referer": "https://kiryuu03.com/"
       },
       "list": {
-        "url": "https://kiryuu03.com/latest/?the_page=2",
+        "url": "https://kiryuu03.com/latest/?the_page={page}",
         "item": "<div class=\"group-data-\\[direction=horizontal\\]:hidden\">[\\s\\S]*?</h1>\\s*</a>\\s*</div>",
         "title": "<h1[^>]*>\\s*(.*?)\\s*</h1>",
         "link": "<a color=\"primary\"[^>]*href=\"([^\"]+)\"",
@@ -173,7 +171,6 @@
         "sinopsis": "<div[^>]*data-show=\"true\"[^>]*itemprop=\"description\"[^>]*>([\\s\\S]*?)</div>",
         "manga_id": "manga_id=(\\d+)",
         "ajax_url": "https://kiryuu03.com/wp-admin/admin-ajax.php?manga_id={id}&page=1&action=chapter_list",
-        "chapter_order": "desc",
         "chapter_block": "<div id=\"chapter-list\"[^>]*>([\\s\\S]*?)</div>\\s*<script",
         "chapter_item": "(<div[^>]*data-chapter-number=\"[^\"]*\"[\\s\\S]*?)(?=<div[^>]*data-chapter-number=\"[^\"]*\"|$)",
         "chapter_name": "font-medium[^>]*>\\s*<span>\\s*(Chapter[^<]+)\\s*</span>",
