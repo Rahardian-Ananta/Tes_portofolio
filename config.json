@@ -1,43 +1,41 @@
 {
   "rules": [
       {
-      "id": "mangakita",
-      "name": "Mangakita",
-      "http": {
-          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-          "referer": "https://mangakita.id/"
-      },
-      "list": {
-          "url": "https://mangakita.id/manga/?page={page}&order=update",
-          "container": "<div class=\"bsx\">([\\\\s\\\\S]+?)</div>\\\\s*</div>",
-          "title": "title=\"([^\"]+)\"",
-          "link": "<a href=\"([^\"]+)\"",
-          "thumb": "<img[^>]+src=\"([^\"]+)\""
-      },
-      "detail": {
-          "judul": "<h1 class=\"entry-title\" itemprop=\"name\">([^<]+)</h1>",
-          "rating": "itemprop=\"ratingValue\" content=\"([^\"]+)\"",
-          "author": "Author <i>([^<]+)</i>",
-          "status": "Status <i>([^<]+)</i>",
-          "type": "Type <a[^>]+>([^<]+)</a>",
-          "tahun": "Released <i>([^<]+)</i>",
-          "genre_block": "<span class=\"mgen\">([\\s\\S]+?)</span>",
-          "genre_item": "<a[^>]+>([^<]+)</a>",
-          "thumbnail": "<div class=\"thumb\"[^>]*>[\\s\\S]*?src=\"([^\"]+)\"",
-          "sinopsis": "itemprop=\"description\">([\\s\\S]*?)</div>",
-          "manga_id": "post_id\"\\s*:\\s*\"([^\"]+)\"",
-          "ajax_url": "",
-          "chapter_block": "<div class=\"eplister\"[^>]*>([\\s\\S]+?)</ul>",
-          "chapter_item": "<li[^>]*>([\\s\\S]+?)</li>",
-          "chapter_name": "<span class=\"chapternum\">([^<]+)</span>",
-          "chapter_link": "<a href=\"([^\"]+)\"",
-          "chapter_date": "<span class=\"chapterdate\">([^<]+)</span>"
-      },
-      "chapter": {
-          "area": "<div id=\"readerarea\">([\\\\s\\\\S]+?)(?:</div>|<noscript)",
-          "image": "<img[^>]+src=\"([^\"]+)\""
-      }
+    "id": "mangakita",
+    "name": "Mangakita",
+    "http": {
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "referer": "https://mangakita.id/"
     },
+    "list": {
+      "url": "https://mangakita.id/manga/?page={page}&order=update",
+      "item": "<div class=\"bsx\">([\\s\\S]+?)</div>\\s*</div>",
+      "title": "title=\"([^\"]+)\"",
+      "link": "<a href=\"([^\"]+)\"",
+      "thumb": "<img[^>]+src=\"([^\"]+)\""
+    },
+    "detail": {
+      "judul": "<h1 class=\"entry-title\" itemprop=\"name\">([^<]+)</h1>",
+      "rating": "itemprop=\"ratingValue\" content=\"([^\"]+)\"",
+      "author": "Author <i>([^<]+)</i>",
+      "status": "Status <i>([^<]+)</i>",
+      "type": "Type <a[^>]+>([^<]+)</a>",
+      "tahun": "Released <i>([^<]+)</i>",
+      "genre_block": "<span class=\"mgen\">([\\s\\S]+?)</span>",
+      "genre_item": "<a[^>]+>([^<]+)</a>",
+      "thumbnail": "<div class=\"thumb\"[^>]*>[\\s\\S]*?src=\"([^\"]+)\"",
+      "sinopsis": "itemprop=\"description\">([\\s\\S]*?)</div>",
+      "chapter_block": "<div class=\"eplister\"[^>]*>([\\s\\S]+?)</ul>",
+      "chapter_item": "<li[^>]*>([\\s\\S]+?)</li>",
+      "chapter_name": "<span class=\"chapternum\">([^<]+)</span>",
+      "chapter_link": "<a href=\"([^\"]+)\"",
+      "chapter_date": "<span class=\"chapterdate\">([^<]+)</span>"
+    },
+    "chapter": {
+      "area": "<div id=\"readerarea\">([\\s\\S]+?)(?:</div>|<noscript)",
+      "image": "<img[^>]+src=\"([^\"]+)\""
+    }
+  },
     {
       "id": "noromax",
       "name": "Noromax",
