@@ -45,7 +45,7 @@
         "referer": "https://noromax01.my.id/"
       },
       "list": {
-        "url": "https://noromax01.my.id/manga/?page={page}&order=update",
+        "url": "https://noromax02.my.id/manga/?page={page}&order=update",
         "item": "<div class=\"bsx\">.*?</a>",
         "title": "title=\"(.*?)\"",
         "link": "href=\"(.*?)\"",
