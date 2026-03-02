@@ -188,30 +188,32 @@
         "referer": "https://komik.co/"
       },
       "list": {
-        "url": "https://komik.co/latest/?the_page={page}",
-        "item": "group-data-\\[direction=horizontal\\]:hidden\\\">([\\s\\S]*?)<div class=\\\"hidden group-data",
+        "url": "https://komik.co/latest/",
+        "item": "group-data-\\[direction=horizontal\\]:hidden\">([\\s\\S]*?)<div class=\"hidden group-data",
         "title": "line-clamp-2 capitalize[^>]*>\\s*(.*?)\\s*</h1>",
-        "link": "href=\\\"(https://komik\\.co/detail/[^\\\"]+)\\\"",
-        "thumb": "src=\\\"(https://images\\.envira-cdn\\.com[^\\\"]+)\\\""
+        "link": "href=\"(https://komik\\.co/detail/[^\"]+)\"",
+        "thumb": "src=\"(https://images\\.envira-cdn\\.com[^\"]+)\""
       },
       "detail": {
-        "judul": "itemprop=\\\"name\\\">\\s*(.*?)\\s*</h1>",
-        "rating": "bg-clip-text\\\">\\s*([\\d.]+)\\s*</span>",
+        "judul": "itemprop=\"name\">\\s*(.*?)\\s*</h1>",
+        "rating": "bg-clip-text\">\\s*([\\d.]+)\\s*</span>",
         "type": "Type</span>[\\s\\S]*?<p[^>]*>\\s*([\\s\\S]*?)\\s*</p>",
         "tahun": "Released</span>[\\s\\S]*?<p[^>]*>\\s*([\\s\\S]*?)\\s*</p>",
-        "thumbnail": "og:image\\\" content=\\\"([^\\\"]+)\\\"",
-        "genre_block": "itemprop=\\\"genre\\\"[^>]*>([\\s\\S]*?)</div>\\s*</div>",
-        "genre_item": "itemprop=\\\"genre\\\"[^>]*>\\s*<span[^>]*>([^<]+)</span>",
-        "sinopsis": "itemprop=\\\"description\\\"[^>]*>\\s*<p>\\s*([\\s\\S]*?)\\s*</p>",
-        "chapter_block": "id=\"chapter-list\" class=\"mt-4 space-y-2([\\s\\S]*?)</div>\\s*<script>",
-        "chapter_item": "data-chapter-number=\"([\\s\\S]+?(?:</div>\\s*</div>\\s*</div>|</script>|<div data-chapter-number))",
+        "thumbnail": "og:image\" content=\"([^\"]+)\"",
+        "genre_block": "itemprop=\"genre\"[^>]*>([\\s\\S]*?)</div>\\s*</div>",
+        "genre_item": "itemprop=\"genre\"[^>]*>\\s*<span[^>]*>([^<]+)</span>",
+        "sinopsis": "itemprop=\"description\"[^>]*>\\s*<p>\\s*([\\s\\S]*?)\\s*</p>",
+        "manga_id": "(?:post_id|postid|manga_id)[\"':\\s-]*(\\d+)",
+        "ajax_url": "https://komik.co/proxy-kiru.php?manga_id={id}",
+        "chapter_block": "([\\s\\S]+)",
+        "chapter_item": "(<div[^>]*data-chapter-number=\"[^\"]*\"[\\s\\S]*?)(?=<div[^>]*data-chapter-number=\"[^\"]*\"|$)",
         "chapter_name": "<span>([^<]*Chapter[^<]*)</span>",
         "chapter_link": "href=\"([^\"]+)\"",
         "chapter_date": "<time[^>]*>([^<]+)</time>"
       },
       "chapter": {
-        "area": "data-image-data=\\\"1\\\"[^>]*>([\\s\\S]*?)</section>",
-        "image": "<img[^>]+src=\\\"([^\\\"]+)\\\""
+        "area": "data-image-data=\"1\"[^>]*>([\\s\\S]*?)</section>",
+        "image": "<img[^>]+src=\"([^\"]+)\""
       }
     },
     {
