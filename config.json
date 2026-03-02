@@ -1,41 +1,41 @@
 {
   "rules": [
-      {
-    "id": "mangakita",
-    "name": "Mangakita",
-    "http": {
-      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-      "referer": "https://mangakita.id/"
+    {
+      "id": "mangakita",
+      "name": "Mangakita",
+      "http": {
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "referer": "https://mangakita.id/"
+      },
+      "list": {
+        "url": "https://mangakita.id/manga/?page={page}&order=update",
+        "item": "<div class=\"bsx\">([\\s\\S]+?)</div>\\s*</div>",
+        "title": "title=\"([^\"]+)\"",
+        "link": "<a href=\"([^\"]+)\"",
+        "thumb": "<img[^>]+src=\"([^\"]+)\""
+      },
+      "detail": {
+        "judul": "<h1 class=\"entry-title\" itemprop=\"name\">([^<]+)</h1>",
+        "rating": "itemprop=\"ratingValue\" content=\"([^\"]+)\"",
+        "author": "Author <i>([^<]+)</i>",
+        "status": "Status <i>([^<]+)</i>",
+        "type": "Type <a[^>]+>([^<]+)</a>",
+        "tahun": "Released <i>([^<]+)</i>",
+        "genre_block": "<span class=\"mgen\">([\\s\\S]+?)</span>",
+        "genre_item": "<a[^>]+>([^<]+)</a>",
+        "thumbnail": "<div class=\"thumb\"[^>]*>[\\s\\S]*?src=\"([^\"]+)\"",
+        "sinopsis": "itemprop=\"description\">([\\s\\S]*?)</div>",
+        "chapter_block": "<div class=\"eplister\"[^>]*>([\\s\\S]+?)</ul>",
+        "chapter_item": "<li[^>]*>([\\s\\S]+?)</li>",
+        "chapter_name": "<span class=\"chapternum\">([^<]+)</span>",
+        "chapter_link": "<a href=\"([^\"]+)\"",
+        "chapter_date": "<span class=\"chapterdate\">([^<]+)</span>"
+      },
+      "chapter": {
+        "area": "<div id=\"readerarea\">([\\s\\S]+?)(?:</div>|<noscript)",
+        "image": "<img[^>]+src=\"([^\"]+)\""
+      }
     },
-    "list": {
-      "url": "https://mangakita.id/manga/?page={page}&order=update",
-      "item": "<div class=\"bsx\">([\\s\\S]+?)</div>\\s*</div>",
-      "title": "title=\"([^\"]+)\"",
-      "link": "<a href=\"([^\"]+)\"",
-      "thumb": "<img[^>]+src=\"([^\"]+)\""
-    },
-    "detail": {
-      "judul": "<h1 class=\"entry-title\" itemprop=\"name\">([^<]+)</h1>",
-      "rating": "itemprop=\"ratingValue\" content=\"([^\"]+)\"",
-      "author": "Author <i>([^<]+)</i>",
-      "status": "Status <i>([^<]+)</i>",
-      "type": "Type <a[^>]+>([^<]+)</a>",
-      "tahun": "Released <i>([^<]+)</i>",
-      "genre_block": "<span class=\"mgen\">([\\s\\S]+?)</span>",
-      "genre_item": "<a[^>]+>([^<]+)</a>",
-      "thumbnail": "<div class=\"thumb\"[^>]*>[\\s\\S]*?src=\"([^\"]+)\"",
-      "sinopsis": "itemprop=\"description\">([\\s\\S]*?)</div>",
-      "chapter_block": "<div class=\"eplister\"[^>]*>([\\s\\S]+?)</ul>",
-      "chapter_item": "<li[^>]*>([\\s\\S]+?)</li>",
-      "chapter_name": "<span class=\"chapternum\">([^<]+)</span>",
-      "chapter_link": "<a href=\"([^\"]+)\"",
-      "chapter_date": "<span class=\"chapterdate\">([^<]+)</span>"
-    },
-    "chapter": {
-      "area": "<div id=\"readerarea\">([\\s\\S]+?)(?:</div>|<noscript)",
-      "image": "<img[^>]+src=\"([^\"]+)\""
-    }
-  },
     {
       "id": "noromax",
       "name": "Noromax",
@@ -178,6 +178,76 @@
       "chapter": {
         "area": "<section[^>]*data-image-data=[^>]*>([\\s\\S]*?)</section>",
         "image": "<img[^>]+src=['\"]([^'\"]+)['\"]"
+      }
+    },
+    {
+      "id": "komikco",
+      "name": "Komik.Co",
+      "http": {
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "referer": "https://komik.co/"
+      },
+      "list": {
+        "url": "https://komik.co/latest/?the_page={page}",
+        "item": "group-data-\\[direction=horizontal\\]:hidden\\\">([\\s\\S]*?)<div class=\\\"hidden group-data",
+        "title": "line-clamp-2 capitalize[^>]*>\\s*(.*?)\\s*</h1>",
+        "link": "href=\\\"(https://komik\\.co/detail/[^\\\"]+)\\\"",
+        "thumb": "src=\\\"(https://images\\.envira-cdn\\.com[^\\\"]+)\\\""
+      },
+      "detail": {
+        "judul": "itemprop=\\\"name\\\">\\s*(.*?)\\s*</h1>",
+        "rating": "bg-clip-text\\\">\\s*([\\d.]+)\\s*</span>",
+        "type": "Type</span>[\\s\\S]*?<p[^>]*>\\s*([\\s\\S]*?)\\s*</p>",
+        "tahun": "Released</span>[\\s\\S]*?<p[^>]*>\\s*([\\s\\S]*?)\\s*</p>",
+        "thumbnail": "og:image\\\" content=\\\"([^\\\"]+)\\\"",
+        "genre_block": "itemprop=\\\"genre\\\"[^>]*>([\\s\\S]*?)</div>\\s*</div>",
+        "genre_item": "itemprop=\\\"genre\\\"[^>]*>\\s*<span[^>]*>([^<]+)</span>",
+        "sinopsis": "itemprop=\\\"description\\\"[^>]*>\\s*<p>\\s*([\\s\\S]*?)\\s*</p>",
+        "chapter_block": "id=\\\"chapter-list\\\"[\\s\\S]*?class=\\\"mt-4 space-y-2([\\s\\S]*?)</div>\\s*<script>",
+        "chapter_item": "data-chapter-number=\\\"([\\s\\S]+?(?:</div>\\s*</div>\\s*</div>|</script>|<div data-chapter-number))",
+        "chapter_name": "<span>([^<]*Chapter[^<]*)</span>",
+        "chapter_link": "href=\\\"([^\\\"]+)\\\"",
+        "chapter_date": "<time[^>]*>([^<]+)</time>"
+      },
+      "chapter": {
+        "area": "data-image-data=\\\"1\\\"[^>]*>([\\s\\S]*?)</section>",
+        "image": "<img[^>]+src=\\\"([^\\\"]+)\\\""
+      }
+    },
+    {
+      "id": "komikindo",
+      "name": "KomikIndo",
+      "http": {
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "referer": "https://komikindo.ch/"
+      },
+      "list": {
+        "url": "https://komikindo.ch/komik-terbaru/page/{page}/",
+        "item": "<div class=\"animepost\">([\\s\\S]*?)</div>\\s*</div>\\s*</div>",
+        "title": "<h3>\\s*<a[^>]*>\\s*(.*?)\\s*</a>\\s*</h3>",
+        "link": "href=\"(.*?)\"",
+        "thumb": "src=\"([^\"]+)\""
+      },
+      "detail": {
+        "judul": "<h1[^>]*itemprop=\"name\"[^>]*>([\\s\\S]*?)</h1>",
+        "rating": "itemprop=\"ratingValue\">([\\d.]+)",
+        "author": "Pengarang:</b>\\s*([\\s\\S]*?)\\s*</span>",
+        "status": "Status:</b>\\s*(.*?)\\s*</span>",
+        "type": "Jenis Komik:</b>\\s*<a.*?>\\s*(.*?)\\s*</a>",
+        "tahun": "Rilis:</b>\\s*<a.*?>\\s*(.*?)\\s*</a>",
+        "thumbnail": "<div class=\"thumb\"[^>]*>.*?<img[^>]+(?:src|data-src)=\"([^\"]+)\"",
+        "genre_block": "<div class=\"genre-info \">([\\s\\S]*?)</div>",
+        "genre_item": ">([^>]+)</a>",
+        "sinopsis": "itemprop=\"description\">([\\s\\S]*?)</div>",
+        "chapter_block": "id=\"chapter_list\">([\\s\\S]*?)</ul>",
+        "chapter_item": "<li>([\\s\\S]+?)</li>",
+        "chapter_name": "class=\"lchx\"[^>]*>(.*?)</span>",
+        "chapter_link": "href=\"(.*?)\"",
+        "chapter_date": "class=\"dt\"[^>]*>(.*?)</span>"
+      },
+      "chapter": {
+        "area": "<div id=\"chimg-auh\">([\\s\\S]*?)</div>",
+        "image": "<img[^>]+src=\"([^\"]+)\""
       }
     }
   ]
