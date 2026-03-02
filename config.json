@@ -203,8 +203,8 @@
         "genre_block": "itemprop=\\\"genre\\\"[^>]*>([\\s\\S]*?)</div>\\s*</div>",
         "genre_item": "itemprop=\\\"genre\\\"[^>]*>\\s*<span[^>]*>([^<]+)</span>",
         "sinopsis": "itemprop=\\\"description\\\"[^>]*>\\s*<p>\\s*([\\s\\S]*?)\\s*</p>",
-        "chapter_block": "id=\"chapter-list\"([\\s\\S]*?)</div>\\s*<script",
-        "chapter_item": "(<div[^>]*data-chapter-number=\"[^\"]*\"[\\s\\S]*?)(?=<div[^>]*data-chapter-number=\"[^\"]*\"|</div>\\s*<script|$)",
+        "chapter_block": "id=\"chapter-list\" class=\"mt-4 space-y-2([\\s\\S]*?)</div>\\s*<script>",
+        "chapter_item": "data-chapter-number=\"([\\s\\S]+?(?:</div>\\s*</div>\\s*</div>|</script>|<div data-chapter-number))",
         "chapter_name": "<span>([^<]*Chapter[^<]*)</span>",
         "chapter_link": "href=\"([^\"]+)\"",
         "chapter_date": "<time[^>]*>([^<]+)</time>"
